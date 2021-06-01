@@ -34,39 +34,60 @@ public class createAsset extends JFrame {
         panel.add(button2);
 
         //Create the label and set it location
-        JLabel label = new JLabel("Create your asset:");
-        label.setBounds(1,0,200,50);
-        panel.add(label);
+        JLabel label1 = new JLabel("Organization");
+        label1.setBounds(0,0,200,50);
+        panel.add(label1);
 
-        //Create a table to create one or some assets
-        String[]columnNames = {"Name", "Category", "Price", "Quantity", "Description", "Organization"};
-        //data of "Name", "Category", "Price", "Quantity" and "Description"
-        String[][] data = {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-        };
-        JTable table = new JTable(data, columnNames);
-        //Set enable to select one item of table
-        table.setCellSelectionEnabled(true);
-        ListSelectionModel select= table.getSelectionModel();
-        select.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        //Set enable to edit the data of table
-        table.setEditingRow(10);
-
-        //Create scroll pane of table and set it
-        JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(0,40,550,210);
-        scrollPane.setViewportView(table);
-        panel.add(scrollPane);
+        JLabel label2 = new JLabel("Asset Name");
+        label2.setBounds(1,40,200,50);
+        panel.add(label2);
         panel.setLayout(null);
+
+        JLabel label3 = new JLabel("Asset Category");
+        label3.setBounds(1,80,200,50);
+        panel.add(label3);
+        panel.setLayout(null);
+
+        JLabel label4 = new JLabel("Asset Price");
+        label4.setBounds(1,120,200,50);
+        panel.add(label4);
+        panel.setLayout(null);
+
+        JLabel label5 = new JLabel("Asset Quantity");
+        label5.setBounds(1,160,200,50);
+        panel.add(label5);
+        panel.setLayout(null);
+
+        JLabel label6 = new JLabel("Description");
+        label6.setBounds(1,200,200,50);
+        panel.add(label6);
+
+        JTextField text1 = new JTextField();
+        text1.setBounds(110,15,140,20);
+        panel.add(text1);
+
+        JTextField text2 = new JTextField();
+        text2.setBounds(110,55,140,20);
+        panel.add(text2);
+
+        JTextField text3 = new JTextField();
+        text3.setBounds(110,95,140,20);
+        panel.add(text3);
+
+        JTextField text4 = new JTextField();
+        text4.setBounds(110,135,140,20);
+        panel.add(text4);
+
+        JTextField text5 = new JTextField();
+        text5.setBounds(110,175,140,20);
+        panel.add(text5);
+
+        JTextArea text6 = new JTextArea();
+        text6.setBounds(110,215,250,40);
+        panel.add(text6);
+
+        panel.setLayout(null);
+
 
         //Set a border to the page
         panel.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
