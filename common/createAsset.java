@@ -41,27 +41,24 @@ public class createAsset extends JFrame {
         JLabel label2 = new JLabel("Asset Name");
         label2.setBounds(1,40,200,50);
         panel.add(label2);
-        panel.setLayout(null);
 
         JLabel label3 = new JLabel("Asset Category");
         label3.setBounds(1,80,200,50);
         panel.add(label3);
-        panel.setLayout(null);
 
         JLabel label4 = new JLabel("Asset Price");
         label4.setBounds(1,120,200,50);
         panel.add(label4);
-        panel.setLayout(null);
 
         JLabel label5 = new JLabel("Asset Quantity");
         label5.setBounds(1,160,200,50);
         panel.add(label5);
-        panel.setLayout(null);
 
         JLabel label6 = new JLabel("Description");
         label6.setBounds(1,200,200,50);
         panel.add(label6);
 
+        //Create text field to input the information
         JTextField text1 = new JTextField();
         text1.setBounds(110,15,140,20);
         panel.add(text1);
