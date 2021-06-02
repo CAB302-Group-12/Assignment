@@ -1,55 +1,74 @@
 import javax.swing.*;
-import javax.swing.border.BevelBorder;
-import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class myAccount extends JFrame{
+    public myAccount(){
+        initComponents();
 
-    public static void main(String[] args){
-        //Create new JFrame "My Account"
-        JFrame jframe = new JFrame("My Account");
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                closeFrame();
+            }
 
-        //Create new JPanel
-        JPanel panel = new JPanel();
+        });
 
-        //Create a label 1 and a label 2
-        JLabel label1 = new JLabel("Account Name: User1");
-        JLabel label2 = new JLabel("Credit Balance: 12345");
+        setTitle("My Account");
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
 
-        //Set label 1 and 2 location and size
-        label1.setLocation(130,40);
-        label1.setSize(150,80);
-        panel.add(label1);
-        label2.setLocation(130,80);
-        label2.setSize(150,80);
-        panel.add(label2);
+    private void closeFrame() {
+        this.dispose();
+    }
 
-        //Create the button 1 and button 2
+    private void initComponents(){
+
+        /**
+         *  Create a label 1 and a label 2 on panel
+         */
+        JLabel label1 = new JLabel("Account Name: ");
+        JLabel label2 = new JLabel("Credit Balance: ");
+
+        /**
+         * Create the button and button 2 on panel
+         */
         JButton button1 = new JButton("Manage Products");
         JButton button2 = new JButton("Change Password");
+        JButton button3 = new JButton("History");
 
-        //Set the button 1 and 2 of location and size
-        button1.setBounds(150,50,150,50);
-        button1.setLocation(30,180);
-        button2.setBounds(150,50,150,50);
-        button2.setLocation(220,180);
-        panel.add(button1);
-        panel.add(button2);
-        panel.setLayout(null);
 
-        //Set a border to the page
-        panel.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+        GroupLayout layout = new GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setAutoCreateGaps(true);
+        layout.setAutoCreateContainerGaps(true);
 
-        //Add panel to the jframe
-        jframe.getContentPane().add(panel);
+        layout.setHorizontalGroup(
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
 
-        //Set window size
-        jframe.setPreferredSize(new Dimension(400, 300));
-        //Close the window
-        jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jframe.pack();
-        //Set centre to the screen
-        jframe.setLocationRelativeTo(null);
-        jframe.setVisible(true);
+                                .addComponent(button1)
+                                .addGap(10)
+                                .addComponent(button2)
+                                .addGap(10)
+                                .addComponent(button3))
 
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(50)
+                                .addComponent(label1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(50)
+                                .addComponent(label2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+
+        ));
+        layout.setVerticalGroup(layout.createSequentialGroup()
+                .addGap(50)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE).addComponent(label1).addComponent(label2))
+                .addGap(50)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE).addComponent(button1).addComponent(button2).addComponent(button3))
+                .addContainerGap());
+        pack();
+    }
+    public static void main(String[] args) {
+        new myAccount();
     }
 }
