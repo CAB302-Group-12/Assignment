@@ -1,17 +1,10 @@
-package com.computer.trading.client.ui.model;
+package Asset;
 
-import javax.swing.DefaultListModel;
-import javax.swing.ListModel;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
-import com.computer.trading.common.beans.Asset;
-
-/**
- * This version uses an AssetInfoDataSource and its methods to retrieve data
- */
 public class AssetInfoData {
-
     DefaultListModel listModel;
 
     DefaultTableModel tableModel;
@@ -34,12 +27,12 @@ public class AssetInfoData {
         }
 
         String[] columnName = new String[]{
-                "name", "category", "price", "quantity", "description"
+                "name", "category", "price", "quantity", "organization", "description"
         };
 
         tableModel = new DefaultTableModel(columnName,0){
             boolean[] canEdit = new boolean[]{
-                    false, false, false, true, false
+                    false, false, false, true, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -55,6 +48,7 @@ public class AssetInfoData {
                         asset.getCategory(),
                         asset.getPrice(),
                         asset.getQuantity(),
+                        asset.getOrganization(),
                         asset.getDescription(),
                 });
             }
@@ -75,20 +69,8 @@ public class AssetInfoData {
             listModel.addElement(a.getName());
             assetData.addAsset(a);
 
-            tableModel.addRow(new Object[]{a.getName(),a.getCategory(),a.getPrice(),a.getQuantity(),a.getDescription()});
+            tableModel.addRow(new Object[]{a.getName(),a.getCategory(),a.getPrice(),a.getQuantity(),a.getOrganization(),a.getDescription()});
         }
-    }
-
-    /**
-     * Based on the name of the person in the address book, delete the person.
-     *
-     * @param key
-     */
-    public void remove(Object key) {
-
-        // remove from both list and map
-        listModel.removeElement(key);
-        assetData.deleteAsset((String) key);
     }
 
     /**
