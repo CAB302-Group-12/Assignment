@@ -1,8 +1,7 @@
-package com.computer.trading.client.ui.model;
+package Asset;
 
 import java.util.Set;
 
-import com.computer.trading.common.beans.Asset;
 
 /**
  * Provides functionality needed by any data source for the Address Book
@@ -36,13 +35,6 @@ public interface AssetInfoDataSource {
      * @return size of address book.
      */
     int getSize();
-
-    /**
-     * Deletes a Person from the address book.
-     *
-     * @param name The name to delete from the address book.
-     */
-    void deleteAsset(String name);
 
     /**
      * Finalizes any resources used by the data source and ensures data is
