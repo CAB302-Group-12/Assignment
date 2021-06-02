@@ -1,55 +1,103 @@
 import javax.swing.*;
-import javax.swing.border.BevelBorder;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-public class edit {
-    public static void main(String[] args){
-        //Create new JFrame "Edit Asset"
-        JFrame jframe = new JFrame("Edit Asset");
+public class edit extends JFrame {
+    public edit() {
+        initComponents();
 
-        //Create new JPanel
-        JPanel panel = new JPanel();
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                closeFrame();
+            }
 
-        //Create the button 1, button 2 and button 3
-        JButton button1 = new JButton("Edit");
-        button1.setBounds(40,250,100,40);
-        panel.add(button1);
+        });
+
+        setTitle("Edit");
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+
+    private void closeFrame() {
+        this.dispose();
+    }
+
+
+    private void initComponents() {
+
+        /**
+         * Create the table
+         */
+        JTable table = new JTable();;
+
+        /**
+         * Create the button
+         */
+        JButton button1 = new JButton("Cancel");
+        button1.setBounds(40, 250, 100, 40);
         JButton button2 = new JButton("Remove");
-        button2.setBounds(225,250,100,40);
-        panel.add(button2);
-        JButton button3 = new JButton("Cancel");
-        button3.setBounds(410,250,100,40);
-        panel.add(button3);
+        button2.setBounds(80, 250, 100, 40);
+        JButton button3 = new JButton("Update");
+        button3.setBounds(120, 250, 100, 40);
 
-        //Create a table to edit one or some assets
-        String[]columnNames = {"Name", "Category", "Price", "Quantity", "Description"};
-        //data of "Name", "Category", "Price", "Quantity" and "Description"
-        String[][] data = {
-                {"Name1", "Asset1", "$123", "5", "null"},
-                {"Name2", "Asset2", "$123", "10", "null"},
-                {"Name3", "Asset3", "$123", "15", "null"},
-                {"Name4", "Asset4", "$123", "20", "null"},
-                {"Name5", "Asset5", "$123", "25", "null"}
-        };
-        JTable table = new JTable(data, columnNames);
+        /**
+         * Create a table to edit one or some assets
+         *
+         * @param name
+         * @param type
+         * @param price
+         * @param quantity
+         * @param organization
+         * @param description
+         */
+        table.setFont(new Font("Microsoft JhengHei", 0, 14));
+        table.setModel(new DefaultTableModel(
+                new Object[][]{
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                },
+                new String[]{
+                        "name", "type", "price", "quantity", "organization", "description"
+                }
+        ){
+            boolean[] canEdit = new boolean[]{
+                    true,true,true,true,true,true
+            };
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+        });
 
-        //Create scroll pane of table and set it
-        JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(0,0,550,210);
+        /**
+         * Create scroll pane of table and set it
+         */
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setBounds(0, 0, 550, 210);
         scrollPane.setViewportView(table);
-        panel.add(scrollPane);
-        panel.setLayout(null);
 
-        //Set a border to the page
-        panel.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
-        //Add panel to the jframe
-        jframe.getContentPane().add(panel);
-        //Set window size
-        jframe.setPreferredSize(new Dimension(550, 370));
-        //Close the window
-        jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
-        jframe.setVisible(true);
+        GroupLayout layout = new GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setAutoCreateGaps(true);
+        layout.setAutoCreateContainerGaps(true);
+
+        layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addComponent(scrollPane, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createSequentialGroup()
+                        .addComponent(button1)
+                        .addGap(90)
+                        .addComponent(button2)
+                        .addGap(90)
+                        .addComponent(button3))
+        );
+
+        layout.setVerticalGroup(layout.createSequentialGroup().addComponent(scrollPane)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE).addComponent(button1).addComponent(button2).addComponent(button3))
+                .addContainerGap());
+        pack();
+    }
+    public static void main(String[] args) {
+        new edit();
     }
 }
