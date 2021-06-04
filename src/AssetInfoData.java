@@ -1,10 +1,14 @@
-package Asset;
+package common;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+/**
+ * This version uses an AssetInfoDataSource and its methods to retrieve data
+ */
 public class AssetInfoData {
+
     DefaultListModel listModel;
 
     DefaultTableModel tableModel;
@@ -27,12 +31,12 @@ public class AssetInfoData {
         }
 
         String[] columnName = new String[]{
-                "name", "category", "price", "quantity", "organization", "description"
+                "name", "category", "price", "quantity", "description","organization"
         };
 
         tableModel = new DefaultTableModel(columnName,0){
             boolean[] canEdit = new boolean[]{
-                    false, false, false, true, false, false
+                    false, false, false, false, false,false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -48,8 +52,8 @@ public class AssetInfoData {
                         asset.getCategory(),
                         asset.getPrice(),
                         asset.getQuantity(),
-                        asset.getOrganization(),
                         asset.getDescription(),
+                        asset.getOrganization(),
                 });
             }
 
@@ -69,8 +73,40 @@ public class AssetInfoData {
             listModel.addElement(a.getName());
             assetData.addAsset(a);
 
-            tableModel.addRow(new Object[]{a.getName(),a.getCategory(),a.getPrice(),a.getQuantity(),a.getOrganization(),a.getDescription()});
+            tableModel.addRow(new Object[]{a.getName(),a.getCategory(),a.getPrice(),a.getQuantity(),a.getDescription(),a.getOrganization()});
+        }   else if(!listModel.contains(a.getCategory())) {
+            assetData.addAsset(a);
+
+            tableModel.addRow(new Object[]{a.getName(),a.getCategory(),a.getPrice(),a.getQuantity(),a.getDescription(),a.getOrganization()});
+        }   else if(!listModel.contains(a.getPrice())) {
+            assetData.addAsset(a);
+
+            tableModel.addRow(new Object[]{a.getName(),a.getCategory(),a.getPrice(),a.getQuantity(),a.getDescription(),a.getOrganization()});
+        }   else if(!listModel.contains(a.getQuantity())) {
+            assetData.addAsset(a);
+
+            tableModel.addRow(new Object[]{a.getName(),a.getCategory(),a.getPrice(),a.getQuantity(),a.getDescription(),a.getOrganization()});
+        }   else if(!listModel.contains(a.getDescription())) {
+            assetData.addAsset(a);
+
+            tableModel.addRow(new Object[]{a.getName(),a.getCategory(),a.getPrice(),a.getQuantity(),a.getDescription(),a.getOrganization()});
+        }   else if(!listModel.contains(a.getOrganization())) {
+            assetData.addAsset(a);
+
+            tableModel.addRow(new Object[]{a.getName(),a.getCategory(),a.getPrice(),a.getQuantity(),a.getDescription(),a.getOrganization()});
         }
+    }
+
+    /**
+     * Based on the name of the person in the address book, delete the person.
+     *
+     * @param key
+     */
+    public void remove(Object key) {
+
+        // remove from both list and map
+        listModel.removeElement(key);
+        assetData.deleteAsset((String) key);
     }
 
     /**

@@ -1,4 +1,4 @@
-package Asset;
+package common;
 
 import java.io.Serializable;
 
@@ -11,6 +11,8 @@ import java.io.Serializable;
 public class Asset implements Comparable<Asset>, Serializable {
 
     private static final long serialVersionUID = 332082608397623483L;
+
+    private String assetId;
 
     private String name;
 
@@ -35,9 +37,8 @@ public class Asset implements Comparable<Asset>, Serializable {
      * @param name
      * @param category
      * @param price
-     * @param quantity
+     * * @param quantity
      * @param description
-     * @param organization
      */
     public Asset(String name, String category, String price, String quantity, String description, String organization) {
         this.name = name;
@@ -47,6 +48,14 @@ public class Asset implements Comparable<Asset>, Serializable {
         this.description= description;
         this.organization = organization;
 
+    }
+
+    public String getAssetId() {
+        return assetId;
+    }
+
+    public void setAssetId(String assetId) {
+        this.assetId = assetId;
     }
 
     /**
@@ -117,13 +126,11 @@ public class Asset implements Comparable<Asset>, Serializable {
         this.quantity = quantity;
     }
 
-    /**
-     * @return the organization
-     */
+
     public String getOrganization() { return organization; }
 
     /**
-     * @param organization the quantity to set
+     * @param organization the organization to set
      */
     public void setOrganization(String organization) {
         this.organization = organization;

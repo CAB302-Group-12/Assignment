@@ -10,14 +10,14 @@ import java.util.Set;
  *         SEDC, FIT, QUT
  * @version - 24/05/2006
  */
-public interface AssetInfoDataSource {
+public interface HistoryInfoDataSource {
 
     /**
      * Adds a Person to the address list, if they are not already in the list
      *
-     * @param a Person to add
+     * @param h Person to add
      */
-    void addAsset(Asset a);
+    void addHistory(History h);
 
     /**
      * Extracts all the details of a Person from the address book based on the
@@ -26,7 +26,7 @@ public interface AssetInfoDataSource {
      * @param name The name as a String to search for.
      * @return all details in a Person object for the name
      */
-    Asset getAsset(String name);
+    History getHistory(String name);
 
     /**
      * Gets the number of addresses in the address book.
@@ -40,7 +40,7 @@ public interface AssetInfoDataSource {
      *
      * @param name The name to delete from the address book.
      */
-    void deleteAsset(String name);
+    void deleteHistory(String name);
 
     /**
      * Finalizes any resources used by the data source and ensures data is
