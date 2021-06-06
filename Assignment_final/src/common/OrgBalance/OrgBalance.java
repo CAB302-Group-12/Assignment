@@ -16,39 +16,26 @@ public class OrgBalance implements Comparable<OrgBalance>, Serializable {
 
     private String credit;
 
-
-
-    
-
+ 
     /**
      * No args constructor.
      */
-    public OrgBalance() {
-    }
+    public OrgBalance() {}
 
     /**
      * Constructor to set values for the Person's details.
      * @param unitname
      * @param credit
-
-     
      */
     public OrgBalance(String unitname, String credit) {
         this.unitname = unitname;
         this.credit= credit;
-
-
-
     }
-
-
 
     /**
      * @return the unitname
      */
-    public String getUnitname() {
-        return unitname;
-    }
+    public String getUnitname() {return unitname;}
 
     /**
      * @param unitname the unitname to set
@@ -57,27 +44,15 @@ public class OrgBalance implements Comparable<OrgBalance>, Serializable {
         this.unitname = unitname;
     }
 
-
     /**
      * @return the credit
      */
-    public String getCredit() {
-        return credit;
-    }
-
+    public String getCredit() {return credit;}
 
     /**
      * @param credit the credit to set
      */
-    public void setCredit(String credit) {
-        this.credit = credit;
-    }
-
-
-
-
-
-    
+    public void setCredit(String credit) {this.credit = credit;}
 
     /**
      * Compares this object with the specified object for order. Returns a
