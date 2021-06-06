@@ -1,12 +1,11 @@
 package common.OrgBalance;
 
-
-
 import java.io.*;
 import java.util.HashMap;
 import java.util.Set;
 
 public class OrgBalanceFileDataSource implements OrgBalanceInfoDataSource {
+    // create a new database file
     private static final String FILENAME = "organizationBalance.dat";
 
     /**
