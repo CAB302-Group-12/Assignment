@@ -1,6 +1,5 @@
 package common.OrgBalance;
 
-
 import javax.swing.*;
 
 /**
