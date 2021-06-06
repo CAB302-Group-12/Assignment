@@ -25,7 +25,8 @@ public class CreateInfoData {
         for (String name : createData.nameSet()) {
             listModel.addElement(name);
         }
-
+        
+        // set the attributes of each data
         String[] columnName = new String[]{
                 "name", "category", "price", "quantity", "organization", "description"
         };
@@ -56,13 +57,13 @@ public class CreateInfoData {
     }
 
     /**
-     * Adds a person to the address book.
+     * Adds a asset to the address book.
      *
      * @param c A Create to add to the address book.
      */
 
     public void add(Create c) {
-        // check to see if the person is already in the book
+        // check to see if the asset is already in the book
         // if not add to the address book and the list model
         if (!listModel.contains(c.getName())) {
             listModel.addElement(c.getName());
@@ -81,7 +82,7 @@ public class CreateInfoData {
     }
 
     /**
-     * Retrieves Person details from the model.
+     * Retrieves Asset details from the model.
      *
      * @param key the name to retrieve.
      * @return the Person object related to the name.
