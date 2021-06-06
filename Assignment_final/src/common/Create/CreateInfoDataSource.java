@@ -1,5 +1,4 @@
 package common.Create;
-
 import java.util.Set;
 
 /**
@@ -19,7 +18,7 @@ public interface CreateInfoDataSource {
     void addCreate(Create c);
 
     /**
-     * Extracts all the details of a Person from the address book based on the
+     * Extracts all the details of an Asset from the address book based on the
      * name passed in.
      *
      * @param name The name as a String to search for.
