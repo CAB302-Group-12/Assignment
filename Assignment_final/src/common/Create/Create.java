@@ -50,7 +50,7 @@ public class Create implements Comparable<Create>, Serializable {
     }
 
     /**
-     * @return the category
+     * @return the category of the asset
      */
     public String getCategory() {
         return category;
@@ -78,7 +78,7 @@ public class Create implements Comparable<Create>, Serializable {
     }
 
     /**
-     * @return the price
+     * @return the price of the asset
      */
     public String getPrice() {
         return price;
@@ -92,7 +92,7 @@ public class Create implements Comparable<Create>, Serializable {
     }
 
     /**
-     * @return the description
+     * @return the description of the asset
      */
     public String getDescription() {
         return description;
@@ -106,7 +106,7 @@ public class Create implements Comparable<Create>, Serializable {
     }
 
     /**
-     * @return the quantity
+     * @return the quantity of the asset
      */
     public String getQuantity() { return quantity; }
 
@@ -118,7 +118,7 @@ public class Create implements Comparable<Create>, Serializable {
     }
 
     /**
-     * @return the organization
+     * @return the organization of the asset
      */
     public String getOrganization() { return organization; }
 
