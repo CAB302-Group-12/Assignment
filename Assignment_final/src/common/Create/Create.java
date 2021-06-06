@@ -64,7 +64,7 @@ public class Create implements Comparable<Create>, Serializable {
     }
 
     /**
-     * @return the name
+     * @return the name of the asset
      */
     public String getName() {
         return name;
