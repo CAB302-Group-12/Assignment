@@ -1,6 +1,5 @@
 package common.OrgBalance;
 
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,6 +18,7 @@ class OrgBalanceFileDataSourceTest {
         orgbalanceTest = new OrgBalanceFileDataSource();
     }
 
+    // test the function of the add organization: add three org to the database and expect result is 7
     @Test
     void addOrganization() {
         orgbalanceTest.addOrganization(A);
@@ -32,6 +32,7 @@ class OrgBalanceFileDataSourceTest {
         
     }
 
+    // test the function of the delete organization: delete three org from the database and expect result is 4
     @Test
     void deleteOrganization() {
         orgbalanceTest.deleteOrganization(A.getUnitname());
